@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AuthGate } from "@/components/auth-gate";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className={`${inter.variable} antialiased`}>
-        {children}
+        <AuthGate>{children}</AuthGate>
       </body>
     </html>
   );
