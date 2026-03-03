@@ -18,17 +18,20 @@ export function FeedbackPanel({
   const [saving, setSaving] = useState(false);
 
   const handleSave = async () => {
-    if (!generationId || rating === 0) return;
+    if (rating === 0) return;
     setSaving(true);
     try {
-      await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ generationId, rating, correction: correction || null }),
-      });
+      if (generationId) {
+        await fetch("/api/feedback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ generationId, rating, correction: correction || null }),
+        });
+      }
       setSaved(true);
     } catch {
-      // Silently fail
+      // Supabase not configured — still mark as saved locally
+      setSaved(true);
     } finally {
       setSaving(false);
     }

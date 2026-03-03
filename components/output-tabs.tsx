@@ -135,7 +135,7 @@ export function OutputTabs({ platforms, outputs, statuses, generationIds }: Outp
               style={{ borderTop: "1px solid #f0f0ee" }}
             >
               <CopyButton text={outputs[activeTab]} />
-              {generationIds[activeTab] && (
+              {statuses[activeTab] === "done" && (
                 <FeedbackPanel
                   platform={activeTab}
                   generationId={generationIds[activeTab]}
