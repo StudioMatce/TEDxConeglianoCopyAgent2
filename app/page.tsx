@@ -207,7 +207,7 @@ export default function Home() {
       </div>
 
       <div className="mt-10 text-[11px] text-[#ccc]">
-        Powered by Claude · Anthropic
+        Powered by Mattia - studiomatce
       </div>
     </div>
   );
