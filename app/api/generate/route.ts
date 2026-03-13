@@ -4,6 +4,8 @@ import { buildSystemPrompt, buildUserPrompt } from "@/lib/prompts/system";
 import { getTopExamples } from "@/lib/feedback/queries";
 import type { GenerateRequest } from "@/types";
 
+// Edge runtime necessario per lo streaming su Netlify
+export const runtime = "edge";
 export const maxDuration = 60;
 
 export async function POST(req: Request) {
